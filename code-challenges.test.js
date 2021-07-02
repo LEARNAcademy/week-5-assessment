@@ -13,7 +13,20 @@
 
 // Reminder: The test will call your function
 
-// --------------------1) Create a function that takes in a string and returns a coded message. The coded message converts 'a' to 4, 'e' to 3, 'i' to 1, and 'o' to 0.
+// / --------------------1) Create a function that takes in a string and returns a coded message. The coded message converts 'a' to 4, 'e' to 3, 'i' to 1, and 'o' to 0.
+
+
+// I used let statements to organize the input and the expected output
+describe("codedMessage", () => {
+    let stringInput = "a,e,i,o"
+    
+    let codedMessageOutput = "4,3,2,1";
+
+    test("return a string with a coded message that is 4,3,2,1",() =>{
+
+        expect(codedMessage(stringInput)).toEqual(codedMessageOutput)
+    })
+})
 
 // a) Create a test with an expect statement using the variables provided.
 
@@ -25,18 +38,34 @@ var secretCodeWord3 = "Eccentric"
 // Expected output: "3cc3ntr1c"
 
 
+//Used describe and it statement to name and show the behavior of this test
+describe("codeWordScrambler",() => {
+    it("converts the letter A into number 4 or the letter E into number 3 based on input",() => {
+        // expect statements and .toEqualare used to define and compare the expected inputs and outputs
+        expect(CodeWordScrambler(secretCodeWord1)).toEqual("L4ck4d41s1c4l")
+        expect(CodeWordScrambler(secretCodeWord2)).toEqual("G0bbl3dyg00k")
+        expect(CodeWordScrambler(secretCodeWord3)).toEqual("3cc3ntr1c")
 
 
+    })
+})
+// this test failed as expected
 
 // b) Create the function that makes the test pass.
 
+    const codeWordScrambler = (string) => {
+        //write let statement that will hold an empty string for the expected output
+        let newString = string.split("")
+        //here I would write conditional statements to return the letter or A or E based on the input.  However I did not know how to write that out.
 
 
+        //return would return the newString and would use .join to join the values into a string that had been rpeviously split.
+        return newString.join("")
+    }
+    // attempted to use if and else statements to make the test pass, but was not able to have the test pass using this function
 
 
 // --------------------2) Create a function that takes in an array and returns all the words that contain the letter a.
-
-// a) Create a test with an expect statement using the variable provided.
 
 var arrayOfWords1 = ["Apple", "Banana", "Plum", "Cherry", "Kiwi"]
 // Expected output: ["Apple", "Banana"]
@@ -46,8 +75,37 @@ var arrayOfWords2 = ["Mango", "Orange", "Apricot", "Blueberry", "Peach"]
 
 
 
+    
+
+// a) Create a test with an expect statement using the variable provided.
+
+    //decided to use let statements to represent the expected inputs and variables in the test
+
+describe("returnWordsWithA",() => {
+    let arrayOfWords1 = ["Apple", "Banana", "Plum", "Cherry", "Kiwi"]
+    
+    let arrayOfWords2 = ["Mango", "Orange", "Apricot", "Blueberry", "Peach"]
+
+    test("return all words that contain the letter A",() => {
+
+        // used expect statements and the .toEqual matcher to compare the inputs and outputs
+        expect(returnWordsWithA(arrayOfWords1)).toEqual(["Apple", "Banana"])
+        expect(returnWordsWithA(arrayOfWords2)).toEqual(["Mango", "Orange", "Apricot", "Blueberry",  "Peach"])
+    })
+})
+
+//test failed as expected
+
+
 
 // b) Create the function that makes the test pass.
+const returnWordsWithA = (array) => {
+    //Here the function needs to .search() method but did not know how to apply it to the function to return the expected output
+    return array.search((value) => {
+        return value === a
+    })
+
+// attempted to make the test pass using const and a .search method.  However I was not able to make this test pass with the above function.
 
 
 
@@ -64,8 +122,26 @@ var hand2 = [5, 5, 3, 3, 4]
 var hand3 = [5, 5, 5, 5, 4]
 // Expected output: false
 
+//used it and expect statements to structure the test
 
+describe("fullHouse",() => {
+    it("returns full house or not a full house based on input")
+        //used .toEqual matcher to compare the inputs and outputs
+        expect(hand1()).toEqual("full house")
+        expect(hand2()).toEqual("not a full house")
+        expect(hand3()).toEqual("not a full house")
+})
+
+//test did not pass as expected.
 
 
 
 // b) Create the function that makes the test pass.
+const fullHouse = (array) => {
+    if(array === [5, 5, 5, 3, 3]){
+        return "full house"
+    } else {
+        return "not a full house"
+    }
+}
+//did not know how to go about solving this problem.  I did think to use the .filter() method and/or conditonal statements but did not know how to apply them to this function
